@@ -14,6 +14,7 @@ var currentHealth = maxHealth
 #stores the hitBox direction so it can be flipped when player changes direction
 var hitBoxFacesRight = true
 var dead := false
+var laserHit = null
 
 func _ready():
 	$AnimationPlayer.play("playerIdle")
@@ -37,9 +38,6 @@ func _physics_process(delta):
 			
 	if(dead):
 		return
-		
-	if(Input.is_action_pressed("restart")):
-		get_tree().reload_current_scene()
 	
 	#movement
 	if(Input.is_action_pressed("ui_right")):
@@ -77,23 +75,15 @@ func _physics_process(delta):
 	if(Input.is_action_just_pressed("jump") && is_on_floor()):
 		$AnimationPlayer.play("playerJump")
 		velocity.y = -2*jumpHeight/jumpTime
-		
-	#walljump
-#	if(Input.is_action_just_pressed("jump") && is_on_floor() == false && is_on_wall()):
-#		canFall = false
-#		$AnimationPlayer.play("playerFlip")
-#		velocity.y = -2*jumpHeight/jumpTime
 
-	#attack animations
-		#used to be a canFall check in the if statement that stopped attack from being usable on spawn
-	if(Input.is_action_just_pressed("light attack")):
-		#animation runs on a different frame system than the script
-		#I set the canFall value in animation and it kept getting cancelled 
-		#do state checks in script, not animation, as they are faster here (constant vs variable update)
-		canFall = false
-		canIdle = false
-		$AnimationPlayer.play("playerLightAttack")
-	
+	#attacks
+	if(Input.is_action_just_pressed("fire")):
+#		canFall = false
+#		canIdle = false
+		var shot = load("res://Scenes/basicBullet.tscn").instance()
+		shot.position = get_global_position()
+		get_parent().add_child(shot)
+		
 	#movement calculations
 	# -y is up, +y is down
 	velocity.y += gravity*delta

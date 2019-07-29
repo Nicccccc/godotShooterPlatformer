@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://target.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/target.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/targetSprite.png" type="Texture" id=2]
 
 [sub_resource type="Animation" id=1]
@@ -64,7 +64,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 6.6432, 11.5248 )
+extents = Vector2( 7.90007, 11.5248 )
 
 [node name="target" type="KinematicBody2D"]
 collision_layer = 8
