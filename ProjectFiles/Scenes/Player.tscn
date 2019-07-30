@@ -1,9 +1,11 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Scripts/mainGame.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/adventurer.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/playerHitbox.gd" type="Script" id=3]
 [ext_resource path="res://Sprites/redRect.jpg" type="Texture" id=4]
+[ext_resource path="res://Scenes/armsFollow.gd" type="Script" id=5]
+[ext_resource path="res://icon.png" type="Texture" id=6]
 
 [sub_resource type="Animation" id=1]
 resource_name = "playerDeath"
@@ -298,5 +300,13 @@ rect_scale = Vector2( 0.15, 0.05 )
 max_value = 3.0
 value = 3.0
 texture_progress = ExtResource( 4 )
+
+[node name="armsFollow" type="Node2D" parent="."]
+script = ExtResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="armsFollow"]
+position = Vector2( 15, 0 )
+scale = Vector2( 0.120595, 0.143486 )
+texture = ExtResource( 6 )
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="body_entered" from="playerHitbox" to="playerHitbox" method="_on_playerHitbox_body_entered"]

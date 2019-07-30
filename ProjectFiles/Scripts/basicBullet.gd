@@ -15,12 +15,12 @@ func _ready():
 	#normalized returns vector scaled to unit length
 	velocity = -(position - target).normalized()
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	#declare and set velocity here for a homing bullet
 	#var velocity = Vector2()
 	#velocity = -(position - target).normalized
 	#velocity = Vector2(30, 0)
-	position += velocity/1.3
+	position += velocity/2.2
+
 
