@@ -4,8 +4,8 @@
 [ext_resource path="res://Sprites/adventurer.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/playerHitbox.gd" type="Script" id=3]
 [ext_resource path="res://Sprites/redRect.jpg" type="Texture" id=4]
-[ext_resource path="res://Scenes/armsFollow.gd" type="Script" id=5]
-[ext_resource path="res://icon.png" type="Texture" id=6]
+[ext_resource path="res://Scripts/armsFollow.gd" type="Script" id=5]
+[ext_resource path="res://Sprites/armsUsps.png" type="Texture" id=6]
 
 [sub_resource type="Animation" id=1]
 resource_name = "playerDeath"
@@ -265,6 +265,7 @@ position = Vector2( 0, -0.15778 )
 texture = ExtResource( 2 )
 vframes = 10
 hframes = 18
+frame = 11
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 playback_speed = 6.0
@@ -305,8 +306,8 @@ texture_progress = ExtResource( 4 )
 script = ExtResource( 5 )
 
 [node name="Sprite" type="Sprite" parent="armsFollow"]
-position = Vector2( 15, 0 )
-scale = Vector2( 0.120595, 0.143486 )
+position = Vector2( 12.041, 1.66714 )
+scale = Vector2( 0.23982, 0.47362 )
 texture = ExtResource( 6 )
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="body_entered" from="playerHitbox" to="playerHitbox" method="_on_playerHitbox_body_entered"]
