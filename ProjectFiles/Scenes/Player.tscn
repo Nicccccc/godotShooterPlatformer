@@ -5,7 +5,7 @@
 [ext_resource path="res://Scripts/playerHitbox.gd" type="Script" id=3]
 [ext_resource path="res://Sprites/redRect.jpg" type="Texture" id=4]
 [ext_resource path="res://Scripts/armsFollow.gd" type="Script" id=5]
-[ext_resource path="res://Sprites/armsUsps.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/pistol.png" type="Texture" id=6]
 
 [sub_resource type="Animation" id=1]
 resource_name = "playerDeath"
@@ -286,7 +286,8 @@ collision_mask = 8
 script = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="playerHitbox"]
-position = Vector2( 10, 6 )
+visible = false
+position = Vector2( 10.691, 6.09214 )
 scale = Vector2( 1.6, 0.7 )
 shape = SubResource( 10 )
 
@@ -304,8 +305,8 @@ texture_progress = ExtResource( 4 )
 script = ExtResource( 5 )
 
 [node name="Sprite" type="Sprite" parent="armsFollow"]
-position = Vector2( 5.20416, 0.690452 )
-scale = Vector2( 0.2, 0.3 )
+position = Vector2( 11.6337, 0.769188 )
+scale = Vector2( 0.38, 0.38 )
 texture = ExtResource( 6 )
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="body_entered" from="playerHitbox" to="playerHitbox" method="_on_playerHitbox_body_entered"]

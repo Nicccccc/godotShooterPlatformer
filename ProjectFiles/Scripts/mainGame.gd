@@ -14,7 +14,6 @@ var currentHealth = maxHealth
 #stores the hitBox direction so it can be flipped when player changes direction
 var hitBoxFacesRight = true
 var dead := false
-var laserHit = null
 
 func _ready():
 	$AnimationPlayer.play("playerIdle")

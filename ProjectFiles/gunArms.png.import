@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/armsUsps.png-93423d198c42374e714d864eee550b83.stex"
+path="res://.import/gunArms.png-bff4e88d7d067c09046cad8fd6823dde.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/armsUsps.png"
-dest_files=[ "res://.import/armsUsps.png-93423d198c42374e714d864eee550b83.stex" ]
+source_file="res://gunArms.png"
+dest_files=[ "res://.import/gunArms.png-bff4e88d7d067c09046cad8fd6823dde.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
@@ -30,5 +30,5 @@ process/HDR_as_SRGB=false
 process/invert_color=false
 stream=false
 size_limit=0
-detect_3d=false
+detect_3d=true
 svg/scale=1.0
