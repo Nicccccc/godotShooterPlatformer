@@ -1,5 +1,6 @@
 extends RigidBody2D
 
+
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -22,5 +23,4 @@ func _process(delta):
 	#velocity = -(position - target).normalized
 	#velocity = Vector2(30, 0)
 	position += velocity/2.2
-
 
