@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Scripts/mainGame.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/armlessFreak2.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Scripts/armsFollow.gd" type="Script" id=5]
 [ext_resource path="res://Sprites/pistol.png" type="Texture" id=6]
 [ext_resource path="res://Scenes/basicAmmoCounter.tscn" type="PackedScene" id=7]
+[ext_resource path="res://ammoCounterSprite.png" type="Texture" id=8]
 
 [sub_resource type="Animation" id=1]
 resource_name = "playerDeath"
@@ -256,6 +257,141 @@ extents = Vector2( 6.56853, 13.5887 )
 
 [sub_resource type="RectangleShape2D" id=10]
 
+[sub_resource type="Animation" id=11]
+resource_name = "0shots"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 8 ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "1shot"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 7 ]
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "2shots"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 6 ]
+}
+
+[sub_resource type="Animation" id=14]
+resource_name = "3shots"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 5 ]
+}
+
+[sub_resource type="Animation" id=15]
+resource_name = "4shots"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 4 ]
+}
+
+[sub_resource type="Animation" id=16]
+resource_name = "5shots"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 3 ]
+}
+
+[sub_resource type="Animation" id=17]
+resource_name = "6shots"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 2 ]
+}
+
+[sub_resource type="Animation" id=18]
+resource_name = "7shots"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+
+[sub_resource type="Animation" id=19]
+resource_name = "8shots"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
 [node name="Player" type="KinematicBody2D"]
 collision_layer = 2
 collision_mask = 9
@@ -311,8 +447,22 @@ scale = Vector2( 0.38, 0.38 )
 texture = ExtResource( 6 )
 
 [node name="basicAmmoCounter" parent="." instance=ExtResource( 7 )]
-scale = Vector2( 0.2, 0.2 )
-offset = Vector2( 0, -140 )
+scale = Vector2( 1, 1 )
+texture = ExtResource( 8 )
+offset = Vector2( 0, -30 )
+vframes = 3
+hframes = 3
+
+[node name="AmmunitionPlayer" type="AnimationPlayer" parent="basicAmmoCounter"]
+anims/0shots = SubResource( 11 )
+anims/1shot = SubResource( 12 )
+anims/2shots = SubResource( 13 )
+anims/3shots = SubResource( 14 )
+anims/4shots = SubResource( 15 )
+anims/5shots = SubResource( 16 )
+anims/6shots = SubResource( 17 )
+anims/7shots = SubResource( 18 )
+anims/8shots = SubResource( 19 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2( 0, -20 )
