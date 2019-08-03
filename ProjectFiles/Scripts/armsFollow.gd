@@ -14,8 +14,9 @@ func _process(delta):
 	Mouse_Position = get_local_mouse_position()
 	Real_Mouse_Position = global_position.angle_to_point(get_global_mouse_position())
 	rotation += Mouse_Position.angle()
-#	if(Real_Mouse_Position < PI/2 && Real_Mouse_Position > -PI/2):
-#		$Sprite.flip_v = true
-#	else:
-#		$Sprite.flip_v = false
+
+	if(Real_Mouse_Position < PI/2 && Real_Mouse_Position > -PI/2):
+		$gunSprite.flip_v = true
+	else:
+		$gunSprite.flip_v = false
 
