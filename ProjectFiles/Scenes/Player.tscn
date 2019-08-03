@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Scripts/mainGame.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/armlessFreak2.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Sprites/redRect.jpg" type="Texture" id=4]
 [ext_resource path="res://Scripts/armsFollow.gd" type="Script" id=5]
 [ext_resource path="res://Sprites/pistol.png" type="Texture" id=6]
+[ext_resource path="res://Scenes/basicAmmoCounter.tscn" type="PackedScene" id=7]
 
 [sub_resource type="Animation" id=1]
 resource_name = "playerDeath"
@@ -304,9 +305,18 @@ texture_progress = ExtResource( 4 )
 [node name="armsFollow" type="Node2D" parent="."]
 script = ExtResource( 5 )
 
-[node name="Sprite" type="Sprite" parent="armsFollow"]
+[node name="gunSprite" type="Sprite" parent="armsFollow"]
 position = Vector2( 11.6337, 0.769188 )
 scale = Vector2( 0.38, 0.38 )
 texture = ExtResource( 6 )
+
+[node name="basicAmmoCounter" parent="." instance=ExtResource( 7 )]
+scale = Vector2( 0.2, 0.2 )
+offset = Vector2( 0, -140 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2( 0, -20 )
+current = true
+zoom = Vector2( 0.5, 0.5 )
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="body_entered" from="playerHitbox" to="playerHitbox" method="_on_playerHitbox_body_entered"]

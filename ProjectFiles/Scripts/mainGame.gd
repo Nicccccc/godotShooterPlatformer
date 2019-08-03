@@ -14,9 +14,11 @@ var currentHealth = maxHealth
 #stores the hitBox direction so it can be flipped when player changes direction
 var hitBoxFacesRight = true
 var dead := false
+var ammoCounter
 
 func _ready():
 	$AnimationPlayer.play("playerIdle")
+	ammoCounter = get_node("basicAmmoCounter")
 
 func playerTakeDamage(damage : int):
 	if(!dead):
@@ -82,6 +84,7 @@ func _physics_process(delta):
 		var shot = load("res://Scenes/basicBullet.tscn").instance()
 		shot.position = get_global_position()
 		get_parent().add_child(shot)
+		ammoCounter.hide()
 		
 	#movement calculations
 	# -y is up, +y is down
