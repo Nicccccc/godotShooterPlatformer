@@ -15,7 +15,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="GodotTestMine"
+config/name="GodotTestMine safeCopy 8-4-19"
 run/main_scene="res://Scenes/TileMap.tscn"
 config/icon="res://icon.png"
 

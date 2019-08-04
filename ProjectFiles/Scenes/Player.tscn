@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Scripts/mainGame.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/armlessFreak2.png" type="Texture" id=2]
@@ -8,7 +8,6 @@
 [ext_resource path="res://Sprites/pistol.png" type="Texture" id=6]
 [ext_resource path="res://Scenes/basicAmmoCounter.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Sprites/ammoCounterSprite.png" type="Texture" id=8]
-
 
 [sub_resource type="Animation" id=1]
 resource_name = "playerDeath"
@@ -24,6 +23,34 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("basicAmmoCounter")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 2.6 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("armsFollow/gunSprite")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 2.6 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "queue_free"
+} ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -393,6 +420,22 @@ tracks/0/keys = {
 "values": [ 0 ]
 }
 
+[sub_resource type="Animation" id=20]
+resource_name = "reload"
+length = 12.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 11.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 8, 0 ]
+}
+
 [node name="Player" type="KinematicBody2D"]
 collision_layer = 2
 collision_mask = 9
@@ -455,6 +498,7 @@ vframes = 3
 hframes = 3
 
 [node name="AmmunitionPlayer" type="AnimationPlayer" parent="basicAmmoCounter"]
+playback_speed = 6.0
 anims/0shots = SubResource( 11 )
 anims/1shot = SubResource( 12 )
 anims/2shots = SubResource( 13 )
@@ -464,6 +508,7 @@ anims/5shots = SubResource( 16 )
 anims/6shots = SubResource( 17 )
 anims/7shots = SubResource( 18 )
 anims/8shots = SubResource( 19 )
+anims/reload = SubResource( 20 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2( 0, -20 )

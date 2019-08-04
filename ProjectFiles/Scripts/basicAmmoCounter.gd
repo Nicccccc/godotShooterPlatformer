@@ -7,6 +7,10 @@ var currentAmmo := maxAmmo
 func _ready():
 	pass
 	
+	
+func fillAmmo():
+	currentAmmo = maxAmmo
+	
 func _physics_process(delta):
 	if(currentAmmo == 8):
 		$AmmunitionPlayer.play("8shots")
@@ -26,3 +30,4 @@ func _physics_process(delta):
 		$AmmunitionPlayer.play("1shot")
 	if(currentAmmo == 0):
 		$AmmunitionPlayer.play("0shots")
+

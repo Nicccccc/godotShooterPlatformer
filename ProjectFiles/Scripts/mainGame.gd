@@ -14,10 +14,12 @@ var currentHealth = maxHealth
 #stores the hitBox direction so it can be flipped when player changes direction
 var hitBoxFacesRight = true
 var dead := false
-var reloadTime := 120
+var reloadTime = 120
+var currentReloadTime
 
 func _ready():
 	$AnimationPlayer.play("playerIdle")
+	currentReloadTime = reloadTime
 
 func playerTakeDamage(damage : int):
 	if(!dead):
@@ -30,6 +32,8 @@ func playerTakeDamage(damage : int):
 	else:
 		return
 		
+func reload():
+	get_node("basicAmmoCounter/AmmunitionPlayer").play("reload")
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
@@ -87,11 +91,12 @@ func _physics_process(delta):
 		get_node("basicAmmoCounter").currentAmmo -= 1
 
 	#auto reload
-	if(get_node("basicAmmoCounter").currentAmmo == 0 && reloadTime == 0):
-		get_node("basicAmmoCounter").currentAmmo = get_node("basicAmmoCounter").maxAmmo
-		reloadTime = 120
-	if(get_node("basicAmmoCounter").currentAmmo == 0 && reloadTime > 0):
-		reloadTime -= 1
+	if(get_node("basicAmmoCounter").currentAmmo == 0 && currentReloadTime > 0):
+		currentReloadTime -= 1
+	if(get_node("basicAmmoCounter").currentAmmo <= 0 && currentReloadTime <= 0):
+		get_node("basicAmmoCounter").fillAmmo()
+		currentReloadTime = reloadTime
+
 	#manual reload
 	if(Input.is_action_just_pressed("reload")):
 		get_node("basicAmmoCounter").currentAmmo = 0
@@ -101,3 +106,4 @@ func _physics_process(delta):
 	velocity.y += gravity*delta
 	velocity.x = move * runSpeed
 	velocity = move_and_slide(velocity, Vector2(0, -1))
+
