@@ -14,6 +14,7 @@ var currentHealth = maxHealth
 #stores the hitBox direction so it can be flipped when player changes direction
 var hitBoxFacesRight = true
 var dead := false
+var reloadTime := 120
 
 func _ready():
 	$AnimationPlayer.play("playerIdle")
@@ -84,13 +85,19 @@ func _physics_process(delta):
 		get_parent().add_child(shot)
 		#updates ammunition variable in the counter node so the sprite can update, get_node needs to be used here not a proxy variable
 		get_node("basicAmmoCounter").currentAmmo -= 1
-		
-		
+
+	#auto reload
+	if(get_node("basicAmmoCounter").currentAmmo == 0 && reloadTime == 0):
+		get_node("basicAmmoCounter").currentAmmo = get_node("basicAmmoCounter").maxAmmo
+		reloadTime = 120
+	if(get_node("basicAmmoCounter").currentAmmo == 0 && reloadTime > 0):
+		reloadTime -= 1
+	#manual reload
+	if(Input.is_action_just_pressed("reload")):
+		get_node("basicAmmoCounter").currentAmmo = 0
+
 	#movement calculations
 	# -y is up, +y is down
 	velocity.y += gravity*delta
 	velocity.x = move * runSpeed
 	velocity = move_and_slide(velocity, Vector2(0, -1))
-
-
-

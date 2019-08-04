@@ -7,7 +7,8 @@
 [ext_resource path="res://Scripts/armsFollow.gd" type="Script" id=5]
 [ext_resource path="res://Sprites/pistol.png" type="Texture" id=6]
 [ext_resource path="res://Scenes/basicAmmoCounter.tscn" type="PackedScene" id=7]
-[ext_resource path="res://ammoCounterSprite.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/ammoCounterSprite.png" type="Texture" id=8]
+
 
 [sub_resource type="Animation" id=1]
 resource_name = "playerDeath"

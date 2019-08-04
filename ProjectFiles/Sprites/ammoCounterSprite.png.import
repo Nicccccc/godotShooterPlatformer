@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ammoCounterSprite.png-cc84108754adc3d60466685c338d1f2d.stex"
+path="res://.import/ammoCounterSprite.png-9f087c7ca09bd36a579855b927031d84.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ammoCounterSprite.png"
-dest_files=[ "res://.import/ammoCounterSprite.png-cc84108754adc3d60466685c338d1f2d.stex" ]
+source_file="res://Sprites/ammoCounterSprite.png"
+dest_files=[ "res://.import/ammoCounterSprite.png-9f087c7ca09bd36a579855b927031d84.stex" ]
 
 [params]
 
