@@ -41,6 +41,7 @@ tracks/1/keys = {
 extents = Vector2( 25.1812, 19.205 )
 
 [node name="basicBullet" type="RigidBody2D"]
+scale = Vector2( 0.996695, 1 )
 collision_layer = 4
 collision_mask = 9
 continuous_cd = 2
